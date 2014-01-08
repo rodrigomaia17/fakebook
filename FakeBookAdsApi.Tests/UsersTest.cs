@@ -13,13 +13,13 @@ namespace FakeBookAdsApi.Tests
         public void ConsigoLerUmAdUser()
         {
             var usersController = new UsersController();
-            long accountId = 0;
-            string accessToken = "";
-            var response = usersController.Read(accountId, accessToken);
+            const long accountId = 0;
+            const string accessToken = "";
+            var response = usersController.Get(accountId, accessToken);
 
             var jsonResponse = JsonConvert.SerializeObject(response);
 
-            AreEqualIgnoreWhiteSpace(readUserResponse, jsonResponse);
+            AreEqualIgnoreWhiteSpace(ReadUserResponse, jsonResponse);
 
         }
 
@@ -35,7 +35,7 @@ namespace FakeBookAdsApi.Tests
             
         }
 
-        private const string readUserResponse = @"{ ""data"": [{
+        private const string ReadUserResponse = @"{ ""data"": [{
                 ""id"": 121211,
                 ""permissions"": [
                  1,

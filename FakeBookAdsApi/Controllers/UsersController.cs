@@ -6,10 +6,10 @@ using System.Web.Http;
 
 namespace FakeBookAdsApi.Controllers
 {
-    public class UsersController
+    public class UsersController : ApiController
     {
         [Route("act_{account_id:long}/users")]
-        public ReadResponse Read(long account_id,string accessToken)
+        public ReadResponse Get(long account_id,string accessToken)
         {
             return new ReadResponse();
         }

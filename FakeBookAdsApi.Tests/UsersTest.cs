@@ -7,7 +7,7 @@ using FakeBookAdsApi.Controllers;
 namespace FakeBookAdsApi.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class UsersTest
     {
         [TestMethod]
         public void ConsigoLerUmAdUser()

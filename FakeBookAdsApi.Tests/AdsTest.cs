@@ -18,7 +18,8 @@ namespace FakeBookAdsApi.Tests
             var adsController = new AdsController();
             var retorno = adsController.GetAdsPreview(12312312, new FacebookAdCreative(), new FacebookTargetingSpecs(), "asdasd");
 
-            Assert.IsNotNull(retorno.Result);
+            Assert.IsInstanceOfType(retorno,typeof(SuccessResponse));
+            Assert.IsNotNull(((SuccessResponse)retorno).Result);
         }
 
         [TestMethod]
@@ -26,11 +27,17 @@ namespace FakeBookAdsApi.Tests
         {
             var adsController = new AdsController();
             var retorno = adsController.GetAdsPreview(12312312, new FacebookAdCreative(), new FacebookTargetingSpecs(), null);
-            
-            const string expected = "{\"error\": {\"message\": \"An access token is required to request this resource.\",\"type\": \"OAuthException\",\"code\": 104}}";
 
-            Utils.AreEqualIgnoreWhiteSpace(expected,JsonConvert.SerializeObject(retorno));
+            Assert.IsInstanceOfType(retorno,typeof(ErrorResponse));
+        }
 
+        [TestMethod]
+        public void NaoConsigoGerarSemAdCreative()
+        {
+            var adsController = new AdsController();
+            var retorno = adsController.GetAdsPreview(123123,null, new FacebookTargetingSpecs(),"aaa");
+
+            Assert.IsInstanceOfType(retorno, typeof(ErrorResponse));
         }
     }
 }

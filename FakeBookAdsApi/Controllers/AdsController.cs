@@ -10,16 +10,35 @@ namespace FakeBookAdsApi.Controllers
     {
         [Route("act_{account_id:long}/generatepreviews")]
         public Response GetAdsPreview(long account_id, FacebookAdCreative creative,
-                                      FacebookTargetingSpecs targetingSpecs,
+                                       FacebookTargetingSpecs targetingSpecs,
                                       string accessToken)
         {
-            return new Response() {Result = "<div> preview </div>"};
+            if (accessToken == null || creative == null)
+                return new ErrorResponse();
+            return new SuccessResponse(){Result = "<div> preview </div>"};
         }
     }
 
-    public class Response
+    public abstract class Response
+    {
+        
+    }
+
+    public class SuccessResponse : Response
     {
         public string Result { get; set; }
+    }
+
+    public class ErrorResponse : Response
+    {
+        public ErrorDetail error { get; set; }
+    }
+
+    public class ErrorDetail
+    {
+        public string message { get; set; }
+        public string type { get; set; }
+        public int code { get; set; }
     }
 
     public class FacebookAdCreative

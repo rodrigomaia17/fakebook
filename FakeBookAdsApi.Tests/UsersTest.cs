@@ -19,21 +19,11 @@ namespace FakeBookAdsApi.Tests
 
             var jsonResponse = JsonConvert.SerializeObject(response);
 
-            AreEqualIgnoreWhiteSpace(ReadUserResponse, jsonResponse);
+            Utils.AreEqualIgnoreWhiteSpace(ReadUserResponse, jsonResponse);
 
         }
 
-        public void AreEqualIgnoreWhiteSpace(string expected, string actual)
-        {
-            string stringOne = expected;
-            string stringTwo = actual;
-
-            string fixedStringOne = Regex.Replace(stringOne, @"\s+", String.Empty);
-            string fixedStringTwo = Regex.Replace(stringTwo, @"\s+", String.Empty);
-
-            Assert.AreEqual(fixedStringOne,fixedStringTwo,false);
-            
-        }
+    
 
         private const string ReadUserResponse = @"{ ""data"": [{
                 ""id"": 121211,

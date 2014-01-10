@@ -9,7 +9,7 @@ namespace FakeBookAdsApi.Controllers
     public class AdsController : ApiController
     {
         [Route("act_{account_id:long}/generatepreviews")]
-        public Response Get(long account_id, [FromUri] FacebookAdCreative creative,
+        public Response GetAdsPreview(long account_id, [FromUri] FacebookAdCreative creative,
                                        [FromUri] FacebookTargetingSpecs targetingSpecs,
                                       string accessToken)
         {

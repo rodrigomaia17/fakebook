@@ -6,11 +6,11 @@ using System.Web.Http;
 
 namespace FakeBookAdsApi.Controllers
 {
-    public class AdsController
+    public class AdsController : ApiController
     {
         [Route("act_{account_id:long}/generatepreviews")]
-        public Response GetAdsPreview(long account_id, FacebookAdCreative creative,
-                                       FacebookTargetingSpecs targetingSpecs,
+        public Response Get(long account_id, [FromUri] FacebookAdCreative creative,
+                                       [FromUri] FacebookTargetingSpecs targetingSpecs,
                                       string accessToken)
         {
             if (accessToken == null || creative == null)
@@ -38,7 +38,7 @@ namespace FakeBookAdsApi.Controllers
     {
         public string message { get; set; }
         public string type { get; set; }
-        public int code { get; set; }
+        public string code { get; set; }
     }
 
     public class FacebookAdCreative

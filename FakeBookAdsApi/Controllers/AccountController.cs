@@ -14,7 +14,7 @@ namespace FakeBookAdsApi.Controllers
         {
             if (accessToken == null || account_id < 1)
                 return new ErrorResponse();
-            return new RootPixelObject() {data = new List<Datum> {new Datum() {id = "a", name = "teste"}}};
+            return new RootPixelObject() {data = new List<Datum> {new Datum() {id = "111", name = "teste"}}};
         }
 
 

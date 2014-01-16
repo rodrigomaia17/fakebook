@@ -29,6 +29,11 @@ namespace FakeBookAdsApi.Controllers
         public string Result { get; set; }
     }
 
+    public class SuccessDataResponse : Response
+    {
+        public string data { get; set; }
+    }
+
     public class ErrorResponse : Response
     {
         public ErrorDetail error { get; set; }

@@ -10,9 +10,9 @@ namespace FakeBookAdsApi.Controllers
     public class AccountController : ApiController
     {
         [Route("act_{account_id:long}/offsitepixels")]
-        public Response GetPixels(long account_id, string accessToken)
+        public Response GetPixels(long account_id, string access_token)
         {
-            if (accessToken == null || account_id < 1)
+            if (access_token == null || account_id < 1)
                 return new ErrorResponse();
             return new RootPixelObject() {data = new List<Datum> {new Datum() {id = "111", name = "teste"}}};
         }

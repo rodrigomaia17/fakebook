@@ -9,7 +9,7 @@ namespace FakeBookAdsApi.Controllers
     public class UsersController : ApiController
     {
         [Route("act_{account_id:long}/users")]
-        public ReadResponse Get(long account_id,string accessToken)
+        public ReadResponse Get(long account_id, string access_token)
         {
             return new ReadResponse();
         }

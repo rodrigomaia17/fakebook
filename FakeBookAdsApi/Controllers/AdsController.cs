@@ -15,7 +15,7 @@ namespace FakeBookAdsApi.Controllers
         {
             if (access_token == null || creative == null)
                 return new ErrorResponse();
-            return new SuccessResponse(){Result = "<div> preview </div>"};
+            return new SuccessPreviewResponse(){data = new List<Preview>(){new Preview(){body =  "<div> preview </div>"}}};
         }
     }
 
@@ -27,6 +27,15 @@ namespace FakeBookAdsApi.Controllers
     public class SuccessResponse : Response
     {
         public string Result { get; set; }
+    }
+
+    public class SuccessPreviewResponse : Response
+    {
+        public List<Preview> data { get; set; }
+    }
+    public class Preview
+    {
+        public string body { get; set; }
     }
 
     public class SuccessDataResponse : Response

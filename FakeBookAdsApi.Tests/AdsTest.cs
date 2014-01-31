@@ -18,8 +18,8 @@ namespace FakeBookAdsApi.Tests
             var adsController = new AdsController();
             var retorno = adsController.GetAdsPreview(12312312, new FacebookAdCreative(), new FacebookTargetingSpecs(), "asdasd");
 
-            Assert.IsInstanceOfType(retorno,typeof(SuccessResponse));
-            Assert.IsNotNull(((SuccessResponse)retorno).Result);
+            Assert.IsInstanceOfType(retorno,typeof(SuccessPreviewResponse));
+            Assert.IsNotNull(((SuccessPreviewResponse)retorno).data.First().body);
         }
 
         [TestMethod]
